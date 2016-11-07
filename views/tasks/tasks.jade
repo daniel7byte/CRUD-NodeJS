@@ -1,0 +1,25 @@
+extends ../layouts/default/layout
+
+block content
+  div.row
+    div.col-md-12
+      h2 Lista de Tareas
+      hr
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th #
+            th Titulo
+            th Descripcion
+            th Prioridad
+            th Fecha
+            th Estado
+        tbody
+          - each task in tasks
+            tr
+              td= task.id
+              td= task.title
+              td= task.description
+              td= task.priority
+              td= task.date
+              td= tasks.status
