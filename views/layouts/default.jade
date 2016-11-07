@@ -1,0 +1,14 @@
+doctype html
+html(lang='es')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/flatly.min.css')
+  body
+    div(class='container')
+      block content
+    script(src='/javascripts/jquery-1.12.4.min.js')
+    script(src='/bootstrap/js/bootstrap.min.js')
