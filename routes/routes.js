@@ -10,5 +10,8 @@ router.get('/', controllers.homeController.index);
 router.get('/tasks', controllers.tasksController.getTasks);
 router.get('/tasks/new', controllers.tasksController.getNewTask);
 router.post('/tasks/new', controllers.tasksController.postNewTask);
+router.post('/tasks/delete', controllers.tasksController.deleteTask);
+router.get('/tasks/update/:id', controllers.tasksController.getUpdateTask);
+router.post('/tasks/update', controllers.tasksController.postUpdateTask);
 
 module.exports = router;
