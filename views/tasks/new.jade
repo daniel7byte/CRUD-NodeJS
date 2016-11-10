@@ -1,0 +1,64 @@
+extends ../layouts/default/layout
+
+block content
+  div.row
+    div.col-md-12
+      h2= title
+      hr
+      div.well.bs-component
+        form.form-horizontal.formulario(action='/tasks/new', method='post')
+          fieldset
+            div.form-group
+              label.col-lg-2.control-label(for='inputTitle') Titulo
+              div.col-lg-10
+                input.form-control#inputTitle(type='text', name='title', placeholder='Comprar Leche')
+            div.form-group
+              label.col-lg-2.control-label(for='inputDesciption') Descripcion
+              div.col-lg-10
+                textarea.form-control#inputDesciption(rows='3', name='description', placeholder='Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+                span.help-block A longer block of help text that breaks onto a new line and may extend beyond one line.
+            div.form-group
+              label.col-lg-2.control-label(for='inputStatus') Estado
+              div.col-lg-10
+                div.radio
+                  label
+                    input#optionStatus1(type='radio', name='optionsStatus', value='Not started', checked='checked')
+                  | No empezado
+                div.radio
+                  label
+                    input#optionStatus2(type='radio', name='optionsStatus', value='In progress')
+                  | En proceso
+                div.radio
+                  label
+                    input#optionStatus3(type='radio', name='optionsStatus', value='Completed')
+                  | Terminado
+                div.radio
+                  label
+                    input#optionStatus3(type='radio', name='optionsStatus', value='Canceled/Postponed')
+                  | Cancelado / Aplazado
+            div.form-group
+              label.col-lg-2.control-label(for='inputStatus') Prioridad
+              div.col-lg-10
+                div.radio
+                  label
+                    input#optionPriority1(type='radio', name='optionsPriority', value='High')
+                  | Alta
+                div.radio
+                  label
+                    input#optionPriority2(type='radio', name='optionsPriority', value='Normal', checked='checked')
+                  | Normal
+                div.radio
+                  label
+                    input#optionPriority3(type='radio', name='optionsPriority', value='Low')
+                  | Baja
+            div.form-group.flashBox
+              div.col-lg-10.col-lg-offset-2
+                div.alert.alert-dismissible.alert-danger
+                  button.close(type='button', data-dismiss='alert') &times;
+                  strong Oh no 
+                  p#flashTxt
+            div.form-group
+              div.col-lg-10.col-lg-offset-2
+                button.btn.btn-default(type='reset', style='margin-right: 3px;') Cancel
+                button.btn.btn-primary(type='submit') Submit
+  script(src='/javascripts/validation.js')

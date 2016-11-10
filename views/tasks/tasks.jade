@@ -3,7 +3,7 @@ extends ../layouts/default/layout
 block content
   div.row
     div.col-md-12
-      h2 Lista de Tareas
+      h2= title
       hr
       table.table.table-striped.table-hover
         thead
@@ -14,6 +14,7 @@ block content
             th Prioridad
             th Fecha
             th Estado
+            th Acciones
         tbody
           - each task in tasks
             tr
@@ -22,4 +23,7 @@ block content
               td= task.description
               td= task.priority
               td= task.date
-              td= tasks.status
+              td= task.status
+              td
+                a(href='tasks/editar/#{task.id}', class='btn btn-xs btn-success', style='margin-right: 3px;') Editar
+                button(onclick='', class='btn btn-xs btn-danger') Eliminar
