@@ -1,6 +1,7 @@
 // tasksController
 
 var mysql = require('mysql');
+var dateFormat = require('dateformat');
 
 module.exports = {
   getTasks : function(req, res, next) {
@@ -20,6 +21,27 @@ module.exports = {
   },
 
   postNewTask : function(req, res, next){
-    console.log(req.body);
+
+    var fechaActual = new Date();
+    var fecha = dateFormat(fechaActual, 'yyyy-mm-dd h:MM:ss');
+
+    var task = {
+      title : req.body.title,
+      description : req.body.description,
+      status : req.body.optionsStatus,
+      priority : req.body.optionsPriority,
+      date : req.body.date,
+      created : fecha,
+      modified : fecha
+    }
+
+    var config = require('../database/config');
+    var db = mysql.createConnection(config);
+    db.connect();
+    db.query('INSERT INTO tasks SET ?', task, function(err, rows, fields){
+      if(err) throw err;
+      db.end();
+      res.render('tasks/new', {title: 'Nueva Tarea', info: 'Producto creado correctamente'});
+    });
   }
 }

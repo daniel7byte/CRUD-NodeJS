@@ -8,6 +8,13 @@ block content
       div.well.bs-component
         form.form-horizontal.formulario(action='/tasks/new', method='post')
           fieldset
+            if info != undefined
+              div.form-group
+                div.col-lg-12
+                  div.alert.alert-dismissible.alert-info
+                    button.close(type='button', data-dismiss='alert') &times;
+                    strong Excelente!
+                    p= info
             div.form-group
               label.col-lg-2.control-label(for='inputTitle') Titulo
               div.col-lg-10
@@ -51,11 +58,15 @@ block content
                   label
                     input#optionPriority3(type='radio', name='optionsPriority', value='Low')
                   | Baja
+            div.form-group
+              label.col-lg-2.control-label(for='date') Fecha
+              div.col-lg-10
+                input.form-control(type='date', name='date')
             div.form-group.flashBox
               div.col-lg-10.col-lg-offset-2
                 div.alert.alert-dismissible.alert-danger
                   button.close(type='button', data-dismiss='alert') &times;
-                  strong Oh no 
+                  strong Oh no! 
                   p#flashTxt
             div.form-group
               div.col-lg-10.col-lg-offset-2
