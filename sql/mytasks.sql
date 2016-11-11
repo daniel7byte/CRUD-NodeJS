@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-11-2016 a las 02:35:03
+-- Tiempo de generación: 11-11-2016 a las 23:10:04
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 7.0.8
 
@@ -32,7 +32,7 @@ CREATE TABLE `tasks` (
   `description` text NOT NULL,
   `status` enum('Not started','In progress','Completed','Canceled/Postponed') NOT NULL DEFAULT 'Not started',
   `priority` enum('High','Normal','Low') NOT NULL DEFAULT 'Normal',
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -42,7 +42,11 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `title`, `description`, `status`, `priority`, `date`, `created`, `modified`) VALUES
-(1, 'Hacer todas las tareas', 'Debo hacer las tareas juicioso', 'Not started', 'High', '2016-11-07 08:00:00', '2016-11-06 10:25:00', '2016-11-06 10:25:00');
+(1, 'Hacer todas las tareas', 'Debo hacer las tareas juicioso', 'Not started', 'High', '2016-11-07', '2016-11-06 10:25:00', '2016-11-06 10:25:00'),
+(2, 'Computador', 'Cortometrajes', 'Not started', 'High', '2016-11-11', '2016-11-10 03:17:53', '2016-11-10 03:17:53'),
+(3, 'Ortodoncia', '', 'Not started', 'Normal', '2016-12-01', '2016-11-10 03:19:53', '2016-11-10 03:19:53'),
+(4, 'Tarea Etica', 'Hacer la tarea de etica. de Alberto Garcia', 'Not started', 'High', '2016-11-10', '2016-11-10 03:21:04', '2016-11-10 05:20:10'),
+(24, 'Tareas del Colegio', 'Hago las tareas y el fin de semana lo dejo para programar', 'Not started', 'Normal', '2016-11-11', '2016-11-10 05:18:49', '2016-11-10 05:19:43');
 
 --
 -- Índices para tablas volcadas
@@ -62,7 +66,7 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT de la tabla `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
