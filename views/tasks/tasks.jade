@@ -12,27 +12,28 @@ block content
               button.close(type='button', data-dismiss='alert') &times;
               strong Excelente!
               p= info
-      table.table.table-striped.table-hover#tblTasks
-        thead
-          tr
-            th #
-            th Titulo
-            th Descripcion
-            th Prioridad
-            th Fecha
-            th Estado
-            th Acciones
-        tbody
-          each task in tasks
-            tr(id='row#{task.id}')
-              td= task.id
-              td= task.title
-              td= task.description
-              td= task.priority
-              td= task.date
-              td= task.status
-              td
-                a(href='tasks/update/#{task.id}', class='btn btn-xs btn-success', style='margin-right: 3px;') Editar
-                button(onclick='deleteTask(#{task.id});', class='btn btn-xs btn-danger') Eliminar
+      div.table-responsive
+        table.table.table-striped.table-hover.table-condensed.table-bordered#tblTasks
+          thead
+            tr
+              th #
+              th Titulo
+              th Descripcion
+              th Prioridad
+              th Fecha
+              th Estado
+              th Acciones
+          tbody
+            each task in tasks
+              tr(id='row#{task.id}')
+                td= task.id
+                td= task.title
+                td= task.description
+                td= task.priority
+                td= task.date
+                td= task.status
+                td
+                  a(href='tasks/update/#{task.id}', class='btn btn-xs btn-success', style='margin-right: 3px;') Editar
+                  button(onclick='deleteTask(#{task.id});', class='btn btn-xs btn-danger') Eliminar
   
   script(src='/javascripts/tasks.js')
